@@ -1,0 +1,134 @@
+:root{
+  --bg: linear-gradient(180deg,#f7fbff 0%, #f3f7fb 40%, #eef4fb 100%);
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent-start: #6ea8fe;
+  --accent-end: #7c3aed;
+  --accent: linear-gradient(90deg,var(--accent-start),var(--accent-end));
+  --primary: #2563eb;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0; background:var(--bg); color:#0f172a}
+.app{display:flex; min-height:100vh}
+.sidebar{width:300px; background:var(--card); border-right:1px solid #e6eef8; padding:24px; display:flex; flex-direction:column; gap:18px}
+.brand{display:flex; gap:12px; align-items:center}
+.logo{width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px; background:linear-gradient(135deg,#e0f2ff,#dbeafe)}
+.brand h1{margin:0; font-size:20px}
+.muted{color:var(--muted); margin:0}
+.name-picker{margin-top:8px; display:flex; flex-direction:column; gap:8px}
+.name-row{display:flex; gap:8px; align-items:center}
+.name-row select{padding:8px; border-radius:8px; border:1px solid #e6eef8; background:transparent}
+.name-row button{padding:8px 10px; border-radius:8px; border:0; background:linear-gradient(90deg,#6ea8fe,#7c3aed); color:white; cursor:pointer}
+.controls{display:flex; flex-direction:column; gap:10px}
+.controls label{font-size:13px; color:var(--muted)}
+.controls select{padding:8px; border-radius:8px; border:1px solid #e6eef8}
+.checkboxes{display:flex; flex-direction:column; gap:6px; font-size:14px}
+.sidebar-footer{margin-top:auto; font-size:12px; color:var(--muted)}
+
+.main{flex:1; padding:32px; display:flex; flex-direction:column; gap:18px}
+.main-header h2{margin:0}
+
+/* Editor section styles */
+.editor{position:relative}
+.editor-header{display:flex; align-items:center; gap:12px; margin-bottom:10px}
+.mic-button{display:flex; align-items:center; gap:6px; padding:8px 12px; border-radius:8px; border:1px solid #e6eef8; background:transparent; cursor:pointer; transition:all 0.2s ease}
+.mic-button:hover{background:rgba(37,99,235,0.04)}
+.mic-button.recording{background:rgba(239,68,68,0.1); border-color:rgba(239,68,68,0.3)}
+.mic-button .icon{font-size:18px}
+.mic-status{font-size:14px; color:var(--muted)}
+
+/* Format toolbar styles */
+.format-toolbar{
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.format-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  color: #e6eef8;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.format-btn:hover{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.format-btn.active{
+  background: rgba(79,70,229,0.2);
+  border-color: rgba(79,70,229,0.4);
+}
+
+.format-btn .icon{
+  font-size: 16px;
+  line-height: 1;
+}
+
+.editor textarea, .results textarea{width:100%; padding:14px; border-radius:10px; border:1px solid #e6eef8; font-size:15px; resize:vertical}
+.actions{display:flex; justify-content:flex-end; margin-top:8px}
+button.primary{background:var(--primary); color:white; padding:10px 16px; border-radius:10px; border:0; cursor:pointer; box-shadow:0 6px 18px rgba(37,99,235,0.12); transition:transform .12s ease, box-shadow .12s ease}
+button.primary:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,99,235,0.14)}
+.results{margin-top:10px}
+.extra-section{margin-top:12px}
+.extra-section pre{background:#0f172a; color:#fff; padding:10px; border-radius:8px}
+/* focus pulse for hero CTA */
+.focus-pulse{box-shadow:0 8px 30px rgba(37,99,235,0.12); border-color:rgba(37,99,235,0.4); transform:translateY(-2px); transition:box-shadow .2s ease, transform .2s ease}
+header.main-header{display:flex; flex-direction:column; gap:6px}
+
+.hero{background: linear-gradient(90deg, rgba(110,168,254,0.08), rgba(124,58,237,0.06)); padding:28px; border-radius:14px; box-shadow:0 8px 30px rgba(12,20,50,0.06); display:flex; flex-direction:column; gap:10px}
+.hero h2{font-size:34px; margin:0; letter-spacing:-0.4px}
+.hero p{margin:0; color:var(--muted); font-size:16px}
+.hero .cta-row{display:flex; gap:12px; align-items:center; margin-top:10px}
+.hero .cta{padding:12px 18px; border-radius:12px; background:var(--accent); color:#fff; border:0; cursor:pointer; font-weight:600; box-shadow:0 10px 30px rgba(124,58,237,0.12)}
+.hero .subtle{background:transparent; border:1px solid rgba(15,23,42,0.06); color:#0f172a; padding:10px 14px; border-radius:10px; cursor:pointer}
+@media(max-width:900px){
+  .app{flex-direction:column}
+  .sidebar{width:100%; border-right:0; border-bottom:1px solid #e6eef8}
+  .hero h2{font-size:28px}
+}
+
+/* Dark / premium dashboard theme overrides */
+.dashboard-theme{background:linear-gradient(180deg,#06070a,#0b1220 40%)}
+.dashboard-theme .app{min-height:100vh}
+.dashboard-theme .sidebar{background:#071022; color:#d7e7ff; border-right:1px solid rgba(255,255,255,0.03)}
+.dashboard-theme .logo{background:linear-gradient(135deg,#0f172a,#15203a); color:#fff}
+.dashboard-theme .brand h1{color:#fff}
+.dashboard-theme .muted{color:#9fb0d6}
+.dashboard-theme .card{background:#071426}
+.dashboard-theme .main{background:transparent; color:#e6eef8}
+.dashboard-theme .editor textarea, .dashboard-theme .results textarea{background:#061221; color:#e6eef8; border-color:rgba(255,255,255,0.04)}
+.dashboard-theme button.primary{background:linear-gradient(90deg,#4f46e5,#06b6d4); box-shadow:0 10px 30px rgba(79,70,229,0.18)}
+.dashboard-theme .hero{background:transparent}
+.dashboard-theme .name-row select{background:#071226; color:#e6eef8; border-color:rgba(255,255,255,0.04)}
+.dashboard-theme .name-row button{background:linear-gradient(90deg,#4f46e5,#06b6d4)}
+
+/* Dark theme microphone button styles */
+.dashboard-theme .mic-button{
+  background:#071226; 
+  color:#e6eef8; 
+  border-color:rgba(255,255,255,0.04)
+}
+.dashboard-theme .mic-button:hover{
+  background:rgba(255,255,255,0.03)
+}
+.dashboard-theme .mic-button.recording{
+  background:rgba(239,68,68,0.15); 
+  border-color:rgba(239,68,68,0.3)
+}
+.dashboard-theme .mic-status{
+  color:#9fb0d6
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TextCraft — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="dashboard-theme">
+  <div class="app dashboard">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">✍️</div>
+        <div>
+          <h1>TextCraft</h1>
+          <p class="muted subhead">the art of rewriting</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label>Rewrite Mode</label>
+        <select id="mode">
+          <option>Polished</option>
+          <option>Formal</option>
+          <option>Creative</option>
+          <option>Academic</option>
+          <option>Concise</option>
+          <option>Simplified</option>
+          <option>Expanded</option>
+        </select>
+
+
+        <label>Language</label>
+        <select id="language">
+          <option>English</option>
+          <option>Spanish</option>
+          <option>French</option>
+          <option>German</option>
+          <option>Italian</option>
+          <option>Portuguese</option>
+        </select>
+
+        <div class="checkboxes">
+          <label><input type="checkbox" id="plagiarism_check"> Plagiarism (sim)</label>
+          <label><input type="checkbox" id="grammar_check"> Grammar check</label>
+          <label><input type="checkbox" id="show_readability"> Readability</label>
+          <label><input type="checkbox" id="summarize_option"> Summarize</label>
+          <label><input type="checkbox" id="expand_option"> Expand</label>
+        </div>
+      </div>
+
+      <footer class="sidebar-footer">
+        <small>Built with Flask • Gemini API</small>
+      </footer>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h2>Rewrite your text instantly</h2>
+        <p class="muted">Paste your content, pick a style, and let AI do the polishing.</p>
+      </header>
+
+      <section class="editor">
+        <div class="editor-header">
+          <button id="micButton" class="mic-button" title="Click to start/stop voice input">
+            <span class="icon">🎙️</span>
+            <span class="text">Speak</span>
+          </button>
+          <div id="micStatus" class="mic-status"></div>
+        </div>
+        
+        <div class="format-toolbar">
+          <button class="format-btn" data-format="bold" title="Bold (Ctrl+B)">
+            <span class="icon">B</span>
+          </button>
+          <button class="format-btn" data-format="italic" title="Italic (Ctrl+I)">
+            <span class="icon">I</span>
+          </button>
+          <button class="format-btn" data-format="bullet" title="Bullet Points (Ctrl+U)">
+            <span class="icon">•</span>
+          </button>
+          <button class="format-btn" data-format="quote" title="Quote (Ctrl+Q)">
+            <span class="icon">"</span>
+          </button>
+          <button class="format-btn" data-format="heading" title="Heading (Ctrl+H)">
+            <span class="icon">H</span>
+          </button>
+        </div>
+        
+        <textarea id="text_input" placeholder="Paste, type, or speak your text here..." rows="12"></textarea>
+        
+        <div class="actions">
+          <button id="rewriteBtn" class="primary">🚀 Rewrite</button>
+        </div>
+      </section>
+
+      <section id="results" class="results" style="display:none;">
+        <h3>✨ Rewritten Text</h3>
+        <textarea id="rewritten_output" rows="10" readonly></textarea>
+        <div id="extraChecks"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
